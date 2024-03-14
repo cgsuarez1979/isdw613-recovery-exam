@@ -4,16 +4,64 @@ El proyecto es un template básico para correr la aplicación con la invocación
 
 # Servicios Rest
 
-Existen dos servicios REST disponibles para el Exámen:
+Existen dos servicios REST disponibles para el Exámen de Reuperación:
 
-- ***Listar Estudiantes***: Este servicio proporciona una lista de estudiantes en formato JSON 
-- ***Crear Estudiante***: Este servicio expone el proceso de creacion de Estudiantes.
+- ***Listar Compras***: Este servicio proporciona una lista de compras realizadas en una tienda en línea en formato JSON.
+
+En términos generales este será el Output de ésta llamada:
+
+```json
+[
+   {
+      "id":1,
+      "name":"Product 1",
+      "purchase-date":"2024-03-21 03:05:06.602686",
+      "price":631,
+      "category":"Toys"
+   },
+   {
+      "id":2,
+      "name":"Product 2",
+      "purchase-date":"2024-03-16 01:18:18.276286",
+      "price":672,
+      "category":"Books"
+   },
+   {
+      "id":3,
+      "name":"Product 3",
+      "purchase-date":"2024-03-23 21:29:20.252457",
+      "price":531,
+      "category":"Home"
+   },
+   {
+      "id":4,
+      "name":"Product 4",
+      "purchase-date":"2024-03-20 08:53:01.644337",
+      "price":429,
+      "category":"Electronics"
+   }
+]
+```
+
+***Cada item está asociado con una categoría específica.***
+
+- ***Crear Productos***: Este servicio expone el proceso de creacion de Productos en la misma tienda en línea.
+
+La creación de productos requiere un body de tipo JSON similar al del siguiente ejemplo:
+
+```json
+{
+    "name": "Product 1",    
+    "price": "123342",
+    "category": "Home"
+}
+```
 
 Ambos endpoints se los accede mediante la siguiente URL:
 
 
 ```
-https://pje4h805t4.execute-api.us-west-2.amazonaws.com/dev/students
+https://pje4h805t4.execute-api.us-west-2.amazonaws.com/dev/purchases
 ```
 ***Es potestad del estudiante escoger el metodo HTTP mas apropiado dependiendo del caso***
 
@@ -52,7 +100,7 @@ Se puede acceder a la siguiente URL para acceder al servidor NGINX que se encuen
 ***Al utilizar un Reverse Proxy los servicios REST se encuentran disponibles bajo el mismo servidor NGINX con el siguiente endpoint (Por lo que se evitará tener errores de tipo CORS en el Exámen):***
 
 ```
-http://localhost:8080/dev/students
+http://localhost:8080/dev/purchases
 ```
 
 
@@ -62,8 +110,7 @@ Automáticamente cualquier cambio que se haga en el directorio o en archivos den
 
 | Aspecto a Implementar      | % de Peso |
 | ----------- | ----------- |
-| Listado de Estudiantes      | 25%       |
-| Creación de Estudiantes   | 25%        |
-| Uso de método HTTP apropiado   | 20%        |
-| Control de Errores en la Invocación  | 10%        |
-| Implementación de Interface Responsive  | 20%        |
+| Listado de Productos      | 25%       |
+| Filtrado de Productos   | 25%        |
+| Implementación de Tabla Resumen   | 25%        |
+| Invocación de Creación de Productos  | 25%        |
